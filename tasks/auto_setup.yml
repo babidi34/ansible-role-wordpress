@@ -1,0 +1,26 @@
+---
+- name: Ensure WP-CLI is installed
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    dest: /usr/local/bin/wp
+    mode: '0755'
+
+- name: Create WP-CLI configuration directory
+  ansible.builtin.file:
+    path: /etc/wp-cli
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Install WordPress using WP-CLI
+  ansible.builtin.command: >
+    wp core install
+    --url="{{ wp_url }}"
+    --title="{{ wp_site_title }}"
+    --admin_user="{{ wp_admin_user }}"
+    --admin_password="{{ wp_admin_password }}"
+    --admin_email="{{ wp_admin_email }}"
+  args:
+    chdir: "{{ wp_install_dir }}"
+  become: false

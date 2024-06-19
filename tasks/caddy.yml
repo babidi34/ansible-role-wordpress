@@ -1,0 +1,15 @@
+---
+- name: Get PHP version
+  command: php -r 'echo PHP_VERSION;'
+  register: php_version_output
+  changed_when: false
+
+- name: Set PHP version fact
+  set_fact:
+    php_version: "{{ php_version_output.stdout | regex_search('^([0-9]+\\.[0-9]+)') }}"
+    
+- name: Deploy Caddy configuration
+  template:
+    src: caddy-config.j2
+    dest: /etc/caddy/Caddyfile
+  notify: restart caddy

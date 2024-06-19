@@ -1,0 +1,9 @@
+# templates/caddy-config.j2
+{{ wp_sitename }} {
+    root * {{ wp_install_dir }}
+    php_fastcgi unix//run/php/php{{ php_version }}-fpm.sock
+    file_server
+    log {
+        output file /var/log/caddy/{{ wp_sitename }}.log
+    }
+}
