@@ -19,16 +19,6 @@ Features include:
 
 ## Installation
 
-Using `ansible-galaxy`:
-```shell
-$ ansible-galaxy install makarenalabs.wordpress
-```
-
-Using `arm` ([Ansible Role Manager](https://github.com/mirskytech/ansible-role-manager/)):
-```shell
-$ arm install makarenalabs.wordpress
-```
-
 Using `git`:
 ```shell
 $ git clone https://github.com/MakarenaLabs/ansible-role-wordpress.git
