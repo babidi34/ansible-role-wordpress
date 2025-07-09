@@ -9,7 +9,9 @@
 
 - name: "Wordpress | Install nginx"
   apt:
-    pkg: nginx
+    pkg:
+      - nginx
+      - ssl-cert
     update_cache: true
     cache_valid_time: 86400
     state: present

@@ -17,3 +17,12 @@ wp_auto_setup: true
 wp_site_title: "Your Site Title"
 wp_admin_user: "your_username"
 wp_admin_password: "your_password"
+
+wp_nginx_port: 443 
+wp_nginx_ssl_enabled: true
+wp_nginx_ssl_certificate: /etc/ssl/certs/ssl-cert-snakeoil.pem
+wp_nginx_ssl_certificate_key: /etc/ssl/private/ssl-cert-snakeoil.key
+wp_nginx_default_server: false
+wp_nginx_ipv6: true
+wp_nginx_client_max_body_size: 64M
+wp_nginx_force_https: true
