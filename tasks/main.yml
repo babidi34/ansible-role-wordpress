@@ -1,4 +1,9 @@
 ---
+- name: Install unzip
+  apt:
+    name: unzip
+    state: present
+
 - name: "Wordpress | Install php"
   apt:
     pkg: ['php-pear', 'php-fpm', 'php-dev', 'php-zip', 'php-curl',
@@ -48,14 +53,14 @@
 
 - name: "Wordpress | Extract archive in {{ wp_install_dir }}"
   unarchive:
-    src: "http://wordpress.org/wordpress-{{ wp_version }}.tar.gz"
+    src: "{{ wp_sources }}"
     dest: "{{ wp_install_dir }}"
-    remote_src: true
+    remote_src: "{{ wp_remote_src }}"
 
 - name: "Wordpress | Move files from {{ wp_install_dir }}/wordpress to {{ wp_install_dir }}"
   command: cp -rf . "{{ wp_install_dir }}"
   args:
-    chdir: "{{ wp_install_dir }}/wordpress/"
+    chdir: "{{ wp_chdir_cp_sources }}"
 
 - name: "Wordpress | Remove wordpress dir"
   file:
