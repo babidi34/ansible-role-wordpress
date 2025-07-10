@@ -1,7 +1,9 @@
 ---
-- name: Install unzip
+- name: Install unzip and rsync
   apt:
-    name: unzip
+    name: 
+      - unzip
+      - rsync
     state: present
 
 - name: "Wordpress | Install php"
