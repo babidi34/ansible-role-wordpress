@@ -3,6 +3,13 @@
 </p>
 
 # Ansible Role: WordPress
+
+This project is a fork of [MakarenaLabs/ansible-role-wordpress](https://github.com/MakarenaLabs/ansible-role-wordpress). It includes:
+- Addition of Nginx with self-signed HTTPS for testing purposes
+- Option to use a custom WordPress archive (backup)
+- Example playbook
+- Soon: Option to provide a SQL dump for import
+
 [![Build Status](https://travis-ci.org/MakarenaLabs/ansible-role-wordpress.svg?branch=master)](https://travis-ci.org/MakarenaLabs/ansible-role-wordpress)
 [![License](https://img.shields.io/github/license/MakarenaLabs/ansible-role-wordpress.svg)](https://opensource.org/licenses/MIT)
 [![Ansible Version](https://img.shields.io/badge/ansible-%3E%3D_2.4-8892BF.svg)](https://www.ansible.com/)
@@ -20,7 +27,7 @@ Installs and configures the latest version of WordPress.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 ```yaml
-wordpress_version: "latest"
+wordpress_version: "6.8.1"
 wordpress_db_name: "wordpress"
 wordpress_db_user: "wordpress"
 wordpress_db_password: "wordpress"

@@ -1,21 +1,19 @@
 ---
 galaxy_info:
   role_name: wordpress
-  author: matteocastagnaro
-  description: WordPress with webserver (Nginx or Apache2)
-  company: "makarenalabs.com"
-  license: "license (BSD, MIT)"
-  min_ansible_version: 1.4
+  author: babidi34
+  description: WordPress with Nginx, Apache, and HTTPS support
+  company: "linux-man.fr"
+  license: "MIT"
+  min_ansible_version: 2.4
   platforms:
-    - name: Ubuntu
-      versions:
-        - xenial
-        - bionic
-        - disco
     - name: Debian
       versions:
-        - stretch
-        - buster
+        - bookworm
   galaxy_tags:
     - development
     - web
+    - nginx
+    - apache
+    - caddy
+    - https

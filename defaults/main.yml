@@ -1,5 +1,5 @@
 ---
-wp_version: 5.0.3
+wp_version: 6.8.1
 wp_sources: http://wordpress.org/wordpress-{{ wp_version }}.tar.gz
 wp_remote_src: true
 wp_chdir_cp_sources: "{{ wp_install_dir }}/wordpress/"
