@@ -1,12 +1,12 @@
 ---
-wp_version: 6.8.1
+wp_version: 6.8.3
 wp_sources: http://wordpress.org/wordpress-{{ wp_version }}.tar.gz
 wp_remote_src: true
 wp_chdir_cp_sources: "{{ wp_install_dir }}/wordpress/"
 wp_install_dir: '/var/www/html'
-wp_db_name: "{{ wp_mysql_db }}"
-wp_db_user: "{{ wp_mysql_user }}"
-wp_db_password: "{{ wp_mysql_password }}"
+wp_db_name: "my_database"
+wp_db_user: "my_database_user"
+wp_db_password: "my_password"
 wp_db_host: 'localhost'
 wp_db_charset: 'utf8'
 wp_db_collate: ''
@@ -15,7 +15,7 @@ wp_debug: false
 wp_admin_email: 'admin@example.com'
 wp_webserver: nginx
 wp_sitename: mysite
-wp_url: "http://{{ wp_sitename }}"
+wp_url: "https://{{ wp_sitename }}"
 wp_auto_setup: true
 wp_site_title: "Your Site Title"
 wp_admin_user: "your_username"

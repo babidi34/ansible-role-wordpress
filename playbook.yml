@@ -1,0 +1,17 @@
+- hosts: servers
+  become: true
+  vars:
+    wp_version: "6.8.1"
+    wp_db_name: "my_database"
+    wp_db_user: "wp_user"
+    wp_db_password: "secure_password"
+    wp_db_host: "localhost"
+    wp_sitename: example.com
+    wp_site_title: "My Custom WordPress Site"
+    wp_admin_user: "admin_user"
+    wp_admin_password: "admin_pass"
+    wp_admin_email: "admin@myexample.com"
+    wp_nginx_ssl_enabled: true
+    wp_nginx_port: 443
+  roles:
+    - { role: wordpress }

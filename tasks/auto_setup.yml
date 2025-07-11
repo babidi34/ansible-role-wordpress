@@ -24,3 +24,14 @@
   args:
     chdir: "{{ wp_install_dir }}"
   become: false
+
+- name: Ensure WordPress admin user exists and set password (WP-CLI)
+  shell: |
+    if ! wp user get '{{ wp_admin_user }}' --path={{ wp_install_dir }} --allow-root > /dev/null 2>&1; then
+      wp user create '{{ wp_admin_user }}' '{{ wp_admin_email }}' --role=administrator --user_pass='{{ wp_admin_password }}' --path={{ wp_install_dir }} --allow-root
+    else
+      wp user update '{{ wp_admin_user }}' --user_pass='{{ wp_admin_password }}' --path={{ wp_install_dir }} --allow-root
+    fi
+  args:
+    chdir: "{{ wp_install_dir }}"
+  become: false
