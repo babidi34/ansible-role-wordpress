@@ -1,4 +1,4 @@
-- hosts: servers
+- hosts: debian12-test
   become: true
   vars:
     wp_version: "6.8.1"
