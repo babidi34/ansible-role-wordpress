@@ -146,6 +146,20 @@
     priv: '*.*:ALL'
     login_unix_socket: /var/run/mysqld/mysqld.sock
 
+- name: "Copy SQL dump to remote server"
+  copy:
+    src: "{{ wp_db_import_file }}"
+    dest: "/home/{{ ansible_user }}/database.sql"
+  when: wp_db_import_file | length > 0
+
+- name: "Import SQL sended"
+  mysql_db:
+    name: "{{ wp_db_name }}"
+    state: import
+    target: "/home/{{ ansible_user }}/database.sql"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  when: wp_db_import_file | length > 0
+
 - name: wordpress auto setup
   ansible.builtin.include_tasks: auto_setup.yml
   when: wp_auto_setup
